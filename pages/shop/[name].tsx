@@ -76,6 +76,7 @@ const List = (props: {
             loader={() => productDetails.imgSrc}
             layout="fill"
             src={productDetails.imgSrc}
+            alt={productDetails.name}
           />
         </div>
         <div className="flex flex-col gap-4 px-4 lg:p-0">

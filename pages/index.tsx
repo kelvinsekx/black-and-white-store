@@ -23,7 +23,7 @@ const Home: NextPage = () => {
       <main className="w-full">
         <div className="flex flex-wrap gap-12 w-full m-auto justify-center lg:justify-start">
           {products.map((item: TProductInterface) => (
-            <Card product={item} />
+            <Card product={item} key={item.name} />
           ))}
         </div>
       </main>

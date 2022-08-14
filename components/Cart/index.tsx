@@ -22,7 +22,7 @@ function CartLogic() {
       <div>
         <div className="flex gap-2">
           {itemsInCart.map((item) => (
-            <CartItem productDetails={cart[item]} />
+            <CartItem productDetails={cart[item]} key={item} />
           ))}
         </div>
         <button
