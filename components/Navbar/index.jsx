@@ -37,7 +37,7 @@ export default function Navbar() {
           <input
             type="search"
             id="default-search"
-            className="p-2 w-full text-sm text-gray-900 rounded-lg border-none"
+            className="p-2 w-full text-sm text-gray-900 rounded-l-lg border-none"
             placeholder="Search"
             required
           />
