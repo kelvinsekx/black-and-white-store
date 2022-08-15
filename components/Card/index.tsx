@@ -11,6 +11,7 @@ export function Card({ product }: { product: TProductInterface }) {
             loader={() => product.imgSrc}
             src={product.imgSrc}
             layout="fill"
+            alt={product.name}
           />
         </div>
         <div className="flex flex-col items-center gap-1">

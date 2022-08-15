@@ -14,7 +14,10 @@ export default function Footer() {
     <>
       <div className="flex flex-col md:flex-row justify-between gap-8 md:gap-4 px-4 text-[#222222] py-8">
         {footerDtx.map((item, index) => (
-          <section className="flex flex-col gap-2 w-full md:w-30">
+          <section
+            key={index}
+            className="flex flex-col gap-2 w-full md:w-30"
+          >
             <header className="font-bold text-xl">{item[0]}</header>
             {item[1]}
           </section>

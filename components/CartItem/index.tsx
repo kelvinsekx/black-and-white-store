@@ -16,6 +16,7 @@ export function CartItem({
           loader={() => productDetails.imgSrc}
           layout="fill"
           src={productDetails.imgSrc}
+          alt={productDetails.name}
         />
       </div>
       <div className="flex flex-col gap-2">
