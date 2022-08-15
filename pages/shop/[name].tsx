@@ -90,11 +90,11 @@ const List = (props: {
           </div>
           <p>{productDetails.description}</p>
           <div className="flex gap-2 text-sm">
-            <span className="px-4 border-solid border-2 border-gray-400">
+            <span className="px-4 rounded border-solid border-2 border-gray-400">
               1
             </span>
             <button
-              className="bg-gray-900 text-slate-100 px-4"
+              className="bg-gray-900 rounded text-slate-100 px-4"
               onClick={() => addToCart(productDetails)}
             >
               Add to cart
