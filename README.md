@@ -1,4 +1,19 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This project is built on [Next.js](https://nextjs.org/) and a response to QSHOP frontend assessment.
+
+## Functionalities it meet 
+[the functionality is subjected to change or addition without notice]
+-  A landing page showing the categories in navbar: I intentionally made this simpler with two: 'M' and 'F'<br>
+   A categories pages listing the various products under that category
+- A product detail page showing the details of the product: this is on the landing page
+- Used Context API to build in a simple cart functionality that 
+  - Add product to Cart
+  - Delete from Card
+  - Display cart
+ - mobile responsive
+
+Since the functionality intended is very simple, **FakeAPI is an overkill**. I created a [simpler async fake api from a json](https://github.com/kelvinsekx/black-and-white-store/blob/main/utils/util.ts) that works as fine as FakeAPI and meets the required functionalities of asynchronous operation.
+
+See how it works below
 
 ## Getting Started
 
