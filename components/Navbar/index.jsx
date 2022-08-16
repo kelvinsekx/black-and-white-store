@@ -1,9 +1,11 @@
 import { FaShoppingCart } from 'react-icons/fa';
 import Link from 'next/link';
+
 import { getContext } from './../../utils/context';
 
 export default function Navbar() {
-  const { cart, getStateByCategory, setCart } = getContext();
+  const { cart, getStateByCategory, setCart, categories } =
+    getContext();
   return (
     <div className="flex flex-col items-center gap-2 md:flex-row md:justify-between md:gap-0 md:py-2">
       <Link href="/">
@@ -12,10 +14,11 @@ export default function Navbar() {
         </span>
       </Link>
       <ul className="flex gap-8 cursor-pointer">
-        <li className="font-bold">Cateogries:</li>
-        <li onClick={() => getStateByCategory('ALL')}>ALL</li>
-        <li onClick={() => getStateByCategory('F')}>F</li>
-        <li onClick={() => getStateByCategory('M')}>M</li>
+        {categories.map((category, i) => (
+          <li key={i} onClick={() => getStateByCategory(category)}>
+            {category}
+          </li>
+        ))}
       </ul>
 
       <form className="flex gap-2">

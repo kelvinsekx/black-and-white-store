@@ -13,16 +13,16 @@ export function CartItem({
     <div className="flex gap-8">
       <div className="w-20 h-20 relative">
         <Image
-          loader={() => productDetails.imgSrc}
+          loader={() => productDetails.images}
           layout="fill"
-          src={productDetails.imgSrc}
-          alt={productDetails.name}
+          src={productDetails.images}
+          alt={productDetails.title}
         />
       </div>
       <div className="flex flex-col gap-2">
         <div>
           <div className="text-xl capitalize font-semibold">
-            {productDetails.name}
+            {productDetails.title}
           </div>
           <div className="text-xl font-thin">
             ${productDetails.price}

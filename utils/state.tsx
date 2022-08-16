@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { TProductInterface } from './util';
-import products from './../products.json';
+import { TProductInterface, getData, getCategories } from './util';
 import { Provider } from './context';
 
 function AppWrapper({ children }: { children: JSX.Element }) {
@@ -9,49 +8,57 @@ function AppWrapper({ children }: { children: JSX.Element }) {
     cart: any;
     products: any;
     showCart: boolean;
+    categories: string[];
   }>({
     cart: {},
     products: [],
     showCart: false,
+    categories: [],
   });
 
   useEffect(function onComponentMount() {
-    const init = async () => {
-      setState((prevState) => ({
-        ...prevState,
-        products: products.data,
-      }));
+    const init = () => {
+      getData().then((data) => {
+        setState((prevState) => ({
+          ...prevState,
+          products: data,
+        }));
+      });
+      getCategories().then((data) => {
+        setState((prev) => ({
+          ...prev,
+          categories: data,
+        }));
+      });
     };
     init();
   }, []);
 
   const getStateByCategory = (category: string) => {
-    if (category.toLowerCase() === 'all')
-      return setState({
-        ...state,
-        products: products.data,
+    getData()
+      .then((data) =>
+        data.filter((item) => item.category === category),
+      )
+      .then((res) => {
+        setState({
+          ...state,
+          products: res,
+        });
       });
-    const newState = products.data.filter(
-      (item) => item.category === category,
-    );
-    return setState({
-      ...state,
-      products: newState,
-    });
   };
 
   const addToCart = (cartItem: TProductInterface) => {
     const { cart } = { ...state };
-    const { name } = cartItem;
+    const { title } = cartItem;
 
-    if (cart[name]) {
-      cart[name].stock++;
+    if (cart[title]) {
+      cart[title].stock++;
     } else {
-      cart[name] = cartItem;
+      cart[title] = cartItem;
     }
 
-    if (cart[name].amount > cart[name].stock) {
-      cart[name].amount = cart[name].stock;
+    if (cart[title].amount > cart[title].stock) {
+      cart[title].amount = cart[title].stock;
     }
     localStorage.setItem('cart', JSON.stringify(cart));
     setState({ ...state, cart });
